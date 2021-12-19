@@ -37,8 +37,14 @@ def collatzInfinite(startInt):
 while True:
   request = input("type 't' to see if the collatz conjecture is ever false for as long as you are willing to wait. \nOr type 'c' to check if a specific number supports the collatz conjecture.\n")
   if request == 'c':
-    number = input('Type any integer: ')
-    collatz(int(number))
+    number = ''
+    while not number.isdigit() and number != '0':
+      number = input('Type any integer: ')
+      if number.isdigit() and number != '0':
+        collatz(int(number))
   elif request == 't':
-    number = input("Type the integer to start the check on: ")
-    collatzInfinite(int(number))
+    number = ''
+    while not number.isdigit() and number != '0':
+      number = input("Type the integer to start at: ")
+      if number.isdigit() and number != '0':
+        collatzInfinite(int(number))
